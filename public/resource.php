@@ -23,7 +23,7 @@ if (! $jwt) {
 }
 
 $secretKey  = 'bGS6lzFqvvSQ8ALbOxatm7/Vk7mLQyzqaS34Q4oR1ew=';
-JWT::$leeway += 60;
+JWT::$leeway += 10;
 $token = JWT::decode((string)$jwt, $secretKey, ['HS512']);
 $now = new DateTimeImmutable();
 $serverName = "your.domain.name";
