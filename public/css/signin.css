@@ -47,5 +47,5 @@ body {
 }
 
 #btnGetResource {
-  display: none;
+  display: block;
 }

@@ -31,14 +31,11 @@
 
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
     </form>
-
-    <button id="btnGetResource">Get current timestamp</button>
   </main>
 
   <script>
     const store = {};
     const loginButton = document.querySelector('#frmLogin');
-    const btnGetResource = document.querySelector('#btnGetResource');
     const form = document.forms[0];
 
     // Inserts the jwt to the store object
@@ -64,22 +61,12 @@
         const jwt = await res.text();
         store.setJWT(jwt);
         frmLogin.style.display = 'none';
-        btnGetResource.style.display = 'block';
       } else {
         // Handle errors
         console.log(res.status, res.statusText);
       }
     });
 
-    btnGetResource.addEventListener('click', async (e) => {
-      const res = await fetch('/resource.php', {
-        headers: {
-          'Authorization': `Bearer ${store.JWT}`
-        }
-      });
-      const timeStamp = await res.text();
-      console.log(timeStamp);
-    });
   </script>
 </body>
 
